@@ -17,7 +17,9 @@ class SongFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->sentence($nbWords = 2, $variableNbWords = true),
+            'duration' => fake()->numberBetween(1, 12),
+            'certification_id' => 2,
         ];
     }
 }

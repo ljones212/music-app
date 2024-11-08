@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Certification extends Model
 {
+    use HasFactory;
+    
     //Function to return the certification the album has (one-to-one relationship).
     public function album() {
         return $this->belongsTo(Album::class);

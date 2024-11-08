@@ -17,7 +17,8 @@ class CertificationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->randomElement(['Diamond', 'Platinum', '2x Platinum', 'Gold', '3x Diamond']),
+            'units_sold' => fake()->randomNumber(),
         ];
     }
 }
