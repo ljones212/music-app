@@ -21,17 +21,16 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(CertificationTableSeeder::class);
-        $this->call(ArtistTableSeeder::class);
-        $this->call(SongTableSeeder::class);
-        $this->call(AlbumTableSeeder::class);
-        $this->call(PostTableSeeder::class);
-        $this->call(CommentTableSeeder::class);
-
-        Album::factory()->count(30)->create();
-        Artist::factory()->count(30)->create();
         Certification::factory()->count(30)->create();
+        $this->call(ArtistTableSeeder::class);
+        Artist::factory()->count(30)->create();
+        $this->call(SongTableSeeder::class);
         Song::factory()->count(30)->create();
+        $this->call(AlbumTableSeeder::class);
+        Album::factory()->count(30)->create();
+        $this->call(PostTableSeeder::class);
         Post::factory()->count(30)->create();
+        $this->call(CommentTableSeeder::class);
         Comment::factory()->count(30)->create();
 
         // User::factory(10)->create();

@@ -24,4 +24,9 @@ class Album extends Model
     public function certification() {
         return $this->hasOne(Certification::class);
     }
+
+    //Function to return posts that feature an album (many-to-many reltionship).
+    public function posts() {
+        return $this->belongsToMany(Post::class);
+    }
 }

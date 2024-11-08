@@ -19,4 +19,9 @@ class Song extends Model
     public function certification() {
         return $this->hasOne(Certification::class);
     }
+
+    //Function to return posts that feature a song (many-to-many reltionship).
+    public function posts() {
+        return $this->belongsToMany(Post::class);
+    }
 }
