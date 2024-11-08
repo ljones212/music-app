@@ -11,8 +11,13 @@ class Album extends Model
         return $this->belongsToMany(Song::class);
     }
 
-    //Function to return the artist of an album (one-to-many reltionship).
+    //Function to return the artist of an album (one-to-many relationship).
     public function artist() {
         return $this->belongsTo(Artist::class);
+    }
+
+    //Function to return the certification of an album (one-to-one relationship).
+    public function certification() {
+        return $this->hasOne(Certification::class);
     }
 }

@@ -17,9 +17,13 @@ return new class extends Migration
             $table->integer('duration');
             $table->date('release_date');
             $table->bigInteger('artist_id')->unsigned();
+            $table->bigInteger('certification_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('artist_id')->references('id')->on('artists')
+                ->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('certification_id')->references('id')->on('certifications')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }
