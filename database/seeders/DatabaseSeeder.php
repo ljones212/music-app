@@ -7,6 +7,7 @@ use App\Models\Album;
 use App\Models\Artist;
 use App\Models\Song;
 use App\Models\Certification;
+use App\Models\Post;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,15 +18,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         $this->call(CertificationTableSeeder::class);
         $this->call(ArtistTableSeeder::class);
         $this->call(SongTableSeeder::class);
         $this->call(AlbumTableSeeder::class);
+        $this->call(PostTableSeeder::class);
 
         Album::factory()->count(30)->create();
         Artist::factory()->count(30)->create();
         Certification::factory()->count(30)->create();
         Song::factory()->count(30)->create();
+        Post::factory()->count(30)->create();
 
         // User::factory(10)->create();
 
