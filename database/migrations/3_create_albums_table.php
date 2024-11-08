@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('title');
             $table->integer('duration');
             $table->date('release_date');
+            $table->bigInteger('artist_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('artist_id')->references('id')->on('artists')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
