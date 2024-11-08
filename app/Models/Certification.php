@@ -10,4 +10,9 @@ class Certification extends Model
     public function album() {
         return $this->belongsTo(Album::class);
     }
+
+    //Function to return the certification a song has (one-to-one relationship).
+    public function song() {
+        return $this->belongsTo(Song::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Album;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,11 @@ class AlbumFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->lastName(),
+            'duration' => fake()->numberBetween(20, 200),
+            'release_date' => fake()->date(),
+            'artist_id' => 1,
+            'certification_id' => 1,
         ];
     }
 }

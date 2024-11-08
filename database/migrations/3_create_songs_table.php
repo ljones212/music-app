@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('duration');
+            $table->bigInteger('certification_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('certification_id')->references('id')->on('certifications')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Album;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ArtistTableSeeder::class);
         $this->call(SongTableSeeder::class);
         $this->call(AlbumTableSeeder::class);
+
+        Album::factory()->count(30)->create();
 
         // User::factory(10)->create();
 
