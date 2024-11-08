@@ -26,7 +26,7 @@ class SongTableSeeder extends Seeder
         $s2->save();
 
         $s3 = new Song;
-        $s3->title = "ALL EYES ON ME";
+        $s3->title = "Gorgeous";
         $s3->duration = 5;
         $s3->certification = "Gold";
         $s3->save();
