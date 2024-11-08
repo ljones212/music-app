@@ -14,11 +14,13 @@ class PostTableSeeder extends Seeder
     public function run(): void
     {
         $p1 = new Post;
+        $p1->name = "SamK";
         $p1->title = "Best Song";
         $p1->caption = "My favourite song";
         $p1->save();
 
         $p2 = new Post;
+        $p2->name = "Jimmy";
         $p2->title = "This album!";
         $p2->caption = "Check it out!!";
         $p2->save();
