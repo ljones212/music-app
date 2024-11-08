@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(CertificationTableSeeder::class);
         $this->call(ArtistTableSeeder::class);
         $this->call(SongTableSeeder::class);
         $this->call(AlbumTableSeeder::class);
-        $this->call(CertificationTableSeeder::class);
 
         // User::factory(10)->create();
 
