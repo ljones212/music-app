@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('duration');
-            $table->string('certification');
             $table->timestamps();
         });
     }

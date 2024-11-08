@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('record_labels', function (Blueprint $table) {
+        Schema::create('certifications', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('director');
-            $table->date('year_founded');
+            $table->string('titel');
+            $table->integer('units_sold');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('record_labels');
+        Schema::dropIfExists('certifications');
     }
 };
