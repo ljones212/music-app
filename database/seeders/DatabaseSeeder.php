@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AlbumTableSeeder::class);
         $this->call(SongTableSeeder::class);
         $this->call(ArtistTableSeeder::class);
+        $this->call(RecordLabelTableSeeder::class);
 
         // User::factory(10)->create();
 
