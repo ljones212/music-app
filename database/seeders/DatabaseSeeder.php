@@ -28,10 +28,10 @@ class DatabaseSeeder extends Seeder
         Song::factory()->count(30)->create();
         $this->call(AlbumTableSeeder::class);
         Album::factory()->count(30)->create();
-        $this->call(PostTableSeeder::class);
-        Post::factory()->count(30)->create();
         $this->call(CommentTableSeeder::class);
         Comment::factory()->count(30)->create();
+        $this->call(PostTableSeeder::class);
+        Post::factory()->count(30)->create();
 
         // User::factory(10)->create();
 

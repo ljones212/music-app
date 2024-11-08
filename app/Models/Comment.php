@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+
+    //Function to return the post a comment is on (one-to-many relationship).
+    public function post() {
+        return $this->hasOne(Post::class);
+    }
 }

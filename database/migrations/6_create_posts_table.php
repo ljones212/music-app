@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('title');
-            $table->string('caption');
+            $table->string('caption')->nullable();
+            $table->bigInteger('comment_id')->unsigned()->nullable();
             $table->timestamps();
+
+            $table->foreign('comment_id')->references('id')->on('comments')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

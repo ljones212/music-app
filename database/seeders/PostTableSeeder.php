@@ -17,6 +17,7 @@ class PostTableSeeder extends Seeder
         $p1->name = "SamK";
         $p1->title = "Best Song";
         $p1->caption = "My favourite song";
+        $p1->comment_id = 1;
         $p1->save();
         $p1->albums()->attach(1);
         $p1->songs()->attach(5);

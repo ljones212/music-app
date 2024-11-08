@@ -18,4 +18,9 @@ class Post extends Model
     public function songs() {
         return $this->belongsToMany(Song::class);
     }
+
+    //Function to return the comments on a post (one-to-many relationship).
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }

@@ -20,6 +20,7 @@ class PostFactory extends Factory
             'name' => fake()->name(),
             'title' => fake()->sentence($nbWords = 10, $variableNbWords = true),
             'caption' => fake()->sentence($nbWords = 20, $variableNbWords = true),
+            'comment_id' =>fake()->numberBetween(1, 2),
         ];
     }
 }
