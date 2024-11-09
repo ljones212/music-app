@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Album;
+use App\Models\Song;
+use App\Models\Artist;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -31,11 +34,29 @@ class PostTableSeeder extends Seeder
         $p2->albums()->attach(2);
         $p2->songs()->attach(1);
 
+        $artist = Artist::factory()->create();
+        $album =
+
         //Calls post factory.
         Post::factory()
-        ->count(20)
-        //Creates a number of (3) comments per post.
-        ->has(Comment::factory()->count(3), 'comments')
-        ->create();
+            ->count(20)
+            //Creates a number of (3) comments per post.
+            ->has(Comment::factory()
+                //Creates a number of (2) albums per comment.
+                ->has(Album::factory()
+                    ->for($artist)
+                    ->count(2), 'albums')
+                //Creates a number of (2) songs per comment.
+                ->has(Song::factory()
+                    ->count(2), 'songs')
+                ->count(3), 'comments')
+            //Creates a number of (2) albums per post.
+            ->has(Album::factory()
+                ->for($artist)
+                ->count(2), 'albums')
+            //Creates a number of (2) songs per post.
+          ->has(Song::factory()
+              ->count(2), 'songs')
+            ->create();
     }
 }
