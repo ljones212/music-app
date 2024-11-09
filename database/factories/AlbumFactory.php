@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Album;
+use App\Models\Certification;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,7 +23,8 @@ class AlbumFactory extends Factory
             'duration' => fake()->numberBetween(20, 200),
             'release_date' => fake()->date(),
             'artist_id' => 1,
-            'certification_id' => 1,
+            //Creates a certification.
+            'certification_id' => Certification::factory(),
         ];
     }
 }

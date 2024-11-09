@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(CertificationTableSeeder::class);
-        Certification::factory()->count(30)->create();
+        // Certification::factory()->create();
         $this->call(ArtistTableSeeder::class);
         Artist::factory()->count(30)->create();
         $this->call(SongTableSeeder::class);

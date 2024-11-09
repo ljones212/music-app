@@ -20,7 +20,7 @@ class PostTableSeeder extends Seeder
         $p1->comment_id = 1;
         $p1->save();
         $p1->albums()->attach(1);
-        $p1->songs()->attach(5);
+        $p1->songs()->attach(2);
 
         $p2 = new Post;
         $p2->name = "Jimmy";
@@ -28,7 +28,7 @@ class PostTableSeeder extends Seeder
         $p2->caption = "Check it out!!";
         $p2->save();
         $p2->albums()->attach(1);
-        $p2->albums()->attach(4);
+        $p2->albums()->attach(2);
         $p2->songs()->attach(1);
     }
 }

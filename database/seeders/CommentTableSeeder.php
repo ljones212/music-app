@@ -18,13 +18,13 @@ class CommentTableSeeder extends Seeder
         $c1->comment = "It's so amazing!";
         $c1->save();
         $c1->albums()->attach(1);
-        $c1->albums()->attach(20);
+        $c1->albums()->attach(2);
         
         $c2 = new Comment;
         $c2->name = "JasonP01";
         $c2->comment = "The best!";
         $c2->save();
         $c2->songs()->attach(2);
-        $c2->songs()->attach(18);
+        $c2->songs()->attach(1);
     }
 }
