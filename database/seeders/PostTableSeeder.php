@@ -27,8 +27,8 @@ class PostTableSeeder extends Seeder
         $p2->title = "This album!";
         $p2->caption = "Check it out!!";
         $p2->save();
-        $p1->albums()->attach(1);
-        $p1->albums()->attach(4);
+        $p2->albums()->attach(1);
+        $p2->albums()->attach(4);
         $p2->songs()->attach(1);
     }
 }

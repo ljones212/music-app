@@ -29,4 +29,9 @@ class Album extends Model
     public function posts() {
         return $this->belongsToMany(Post::class);
     }
+
+    //Function to return comments that feature an album (many-to-many relationship).
+    public function comments() {
+        return $this->belongsToMany(Comment::class);
+    }
 }

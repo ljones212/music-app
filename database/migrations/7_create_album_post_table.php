@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('album_post', function (Blueprint $table) {
-            $table->bigInteger('album_id')->unsigned();
-            $table->bigInteger('post_id')->unsigned();
+            $table->bigInteger('album_id')->unsigned()->nullable();
+            $table->bigInteger('post_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('album_id')->references('id')->on('albums')

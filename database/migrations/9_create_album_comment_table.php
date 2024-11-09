@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_song', function (Blueprint $table) {
-            $table->bigInteger('song_id')->unsigned()->nullable();
-            $table->bigInteger('post_id')->unsigned()->nullable();
+        Schema::create('album_comment', function (Blueprint $table) {
+            $table->bigInteger('album_id')->unsigned();
+            $table->bigInteger('comment_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('song_id')->references('id')->on('songs')
+            $table->foreign('album_id')->references('id')->on('albums')
             ->onDelete('cascade')->onUpdate('cascade');
 
-            $table->foreign('post_id')->references('id')->on('posts')
+            $table->foreign('comment_id')->references('id')->on('comments')
             ->onDelete('cascade')->onUpdate('cascade');
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_song');
+        Schema::dropIfExists('album_comment');
     }
 };
