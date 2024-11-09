@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Model\Certification;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,8 @@ class SongFactory extends Factory
         return [
             'title' => fake()->sentence($nbWords = 2, $variableNbWords = true),
             'duration' => fake()->numberBetween(1, 12),
-            'certification_id' => 2,
+            //Creates a certification.
+            'certification_id' => Certification::factory(),
         ];
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Album;
 use App\Models\Certification;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
