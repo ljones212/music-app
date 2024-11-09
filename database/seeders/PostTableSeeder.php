@@ -30,5 +30,7 @@ class PostTableSeeder extends Seeder
         $p2->albums()->attach(1);
         $p2->albums()->attach(2);
         $p2->songs()->attach(1);
+    
+        Post::factory()->count(30)->create();
     }
 }

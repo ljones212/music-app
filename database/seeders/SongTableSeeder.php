@@ -30,5 +30,7 @@ class SongTableSeeder extends Seeder
         $s3->duration = 5;
         $s3->certification_id= 2;
         $s3->save();
+
+        Song::factory()->count(30)->create();
     }
 }

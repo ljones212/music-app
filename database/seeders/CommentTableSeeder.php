@@ -26,5 +26,7 @@ class CommentTableSeeder extends Seeder
         $c2->save();
         $c2->songs()->attach(2);
         $c2->songs()->attach(1);
+
+        Comment::factory()->count(30)->create();
     }
 }
