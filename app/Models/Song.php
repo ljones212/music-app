@@ -24,4 +24,9 @@ class Song extends Model
     public function posts() {
         return $this->belongsToMany(Post::class);
     }
+    
+    //Function to return comments that feature a song (many-to-many reltionship).
+    public function comments() {
+        return $this->belongsToMany(Comment::class);
+    }
 }

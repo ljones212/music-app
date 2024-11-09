@@ -24,5 +24,7 @@ class CommentTableSeeder extends Seeder
         $c2->name = "JasonP01";
         $c2->comment = "The best!";
         $c2->save();
+        $c2->songs()->attach(2);
+        $c2->songs()->attach(18);
     }
 }

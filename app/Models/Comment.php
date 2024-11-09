@@ -18,4 +18,9 @@ class Comment extends Model
     public function albums() {
         return $this->belongsToMany(Album::class);
     }
+
+    //Function to return songs in a comment (many-to-many reltionship).
+    public function songs() {
+        return $this->belongsToMany(Song::class);
+    }
 }
