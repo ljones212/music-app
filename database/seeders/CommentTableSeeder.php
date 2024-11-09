@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -28,5 +29,12 @@ class CommentTableSeeder extends Seeder
         $c2->save();
         $c2->songs()->attach(2);
         $c2->songs()->attach(1);
+
+        $post = Post::factory()->create();
+
+        Comment::factory()
+            ->count(10)
+            ->for($post)
+            ->create();
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Album;
+use App\Models\Artist;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
@@ -32,5 +33,12 @@ class AlbumTableSeeder extends Seeder
         $a2->certification_id = 1;
         $a2->save();
         $a2->songs()->attach(2);
+
+        $artist = Artist::factory()->create();
+
+        Album::factory()
+            ->count(20)
+            ->for($artist)
+            ->create();
     }
 }
