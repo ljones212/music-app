@@ -22,7 +22,6 @@ class AlbumFactory extends Factory
             'title' => fake()->word(),
             'duration' => fake()->numberBetween(20, 200),
             'release_date' => fake()->date(),
-            // 'artist_id' => 1,
             //Creates a certification.
             'certification_id' => Certification::factory(),
         ];

@@ -11,7 +11,7 @@ class Comment extends Model
 
     //Function to return the post a comment is on (one-to-many relationship).
     public function post() {
-        return $this->hasOne(Post::class);
+        return $this->belongsTo(Post::class);
     }
 
     //Function to return the albums in a comment (many-to-many relationship).

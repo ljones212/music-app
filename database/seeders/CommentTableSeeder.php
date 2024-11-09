@@ -16,6 +16,7 @@ class CommentTableSeeder extends Seeder
         $c1 = new Comment;
         $c1->name = "JasonD00";
         $c1->comment = "It's so amazing!";
+        $c1->post_id = 1;
         $c1->save();
         $c1->albums()->attach(1);
         $c1->albums()->attach(2);
@@ -23,10 +24,9 @@ class CommentTableSeeder extends Seeder
         $c2 = new Comment;
         $c2->name = "JasonP01";
         $c2->comment = "The best!";
+        $c2->post_id = 2;
         $c2->save();
         $c2->songs()->attach(2);
         $c2->songs()->attach(1);
-
-        Comment::factory()->count(30)->create();
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,7 +18,6 @@ class PostTableSeeder extends Seeder
         $p1->name = "SamK";
         $p1->title = "Best Song";
         $p1->caption = "My favourite song";
-        $p1->comment_id = 1;
         $p1->save();
         $p1->albums()->attach(1);
         $p1->songs()->attach(2);
@@ -30,7 +30,10 @@ class PostTableSeeder extends Seeder
         $p2->albums()->attach(1);
         $p2->albums()->attach(2);
         $p2->songs()->attach(1);
-    
-        Post::factory()->count(30)->create();
+
+        Post::factory()
+            ->count(30)
+            ->has(Comment::factory()->count(1), 'comments')
+            ->create();
     }
 }

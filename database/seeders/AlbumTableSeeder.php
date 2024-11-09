@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Album;
-use App\Models\Artist;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
