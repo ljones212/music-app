@@ -24,14 +24,5 @@ class ArtistTableSeeder extends Seeder
         $ar2->name = "Kendrick";
         $ar2->age = 62;
         $ar2->save();
-
-        //Calls artist factory.
-        Artist::factory()
-            ->count(30)
-            //Creates a number of (3) albums per artist.
-            ->has(Album::factory()
-                    ->has(Song::factory()->count(5), 'songs')
-                    ->count(3), 'albums')
-            ->create();
     }
 }

@@ -30,12 +30,5 @@ class PostTableSeeder extends Seeder
         $p2->albums()->attach(1);
         $p2->albums()->attach(2);
         $p2->songs()->attach(1);
-
-        //Calls post factory.
-        Post::factory()
-            ->count(30)
-            //Creates a number of (3) comments per post.
-            ->has(Comment::factory()->count(3), 'comments')
-            ->create();
     }
 }
