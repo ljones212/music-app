@@ -32,6 +32,6 @@ class SongTableSeeder extends Seeder
         $s3->save();
 
         //Calls song factory.
-        Song::factory()->count(30)->create();
+        // Song::factory()->count(30)->create();
     }
 }

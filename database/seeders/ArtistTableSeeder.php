@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Artist;
 use App\Models\Album;
+use App\Models\Song;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -28,7 +29,9 @@ class ArtistTableSeeder extends Seeder
         Artist::factory()
             ->count(30)
             //Creates a number of (3) albums per artist.
-            ->has(Album::factory()->count(3), 'albums')
+            ->has(Album::factory()
+                    ->has(Song::factory()->count(5), 'songs')
+                    ->count(3), 'albums')
             ->create();
     }
 }
