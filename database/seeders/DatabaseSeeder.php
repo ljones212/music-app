@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SongTableSeeder::class);
 
         $this->call(AlbumTableSeeder::class);
-        
+
         $this->call(PostTableSeeder::class);
 
         //Calls post factory.
@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             ->count(30)
             //Creates a number of (3) comments per post.
             ->has(Comment::factory()->count(3), 'comments')
+            ->has()
             ->create();
 
         $this->call(CommentTableSeeder::class);
