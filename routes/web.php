@@ -17,4 +17,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//Route with no authentication
+Route::get('/songs', function() {
+    return "Welcome to the songs page.";
+});
+
+//Route with authentication
+Route::get('/artist', function() {
+    return "Artist page.";
+})->middleware(['auth']);
+
 require __DIR__.'/auth.php';
