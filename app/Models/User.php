@@ -48,11 +48,11 @@ class User extends Authenticatable
 
     //Funtion to return the posts a user has made (polymorphic relationship).
     public function posts() {
-        return $this->morpMany('App/Post', 'postable');
+        return $this->morphMany('App/Post', 'postable');
     }
 
     //Funtion to return the comments a user has made (polymorphic relationship).
     public function comments() {
-        return $this->morpMany('App/Comment', 'commentable');
+        return $this->morphMany('App/Comment', 'commentable');
     }
 }

@@ -19,13 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SongTableSeeder::class);
         $this->call(AlbumTableSeeder::class);
         $this->call(PostTableSeeder::class);
+        $this->call(UserTableSeeder::class);
         $this->call(CommentTableSeeder::class);
-
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
     }
 }
