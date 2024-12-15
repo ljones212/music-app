@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('comment');
             $table->bigInteger('post_id')->unsigned();
+            $table->morphs('commentable');
             $table->timestamps();
 
             $table->foreign('post_id')->references('id')->on('posts')

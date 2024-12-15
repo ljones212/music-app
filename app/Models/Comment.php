@@ -23,4 +23,9 @@ class Comment extends Model
     public function songs() {
         return $this->belongsToMany(Song::class);
     }
+
+    //Function to return the artist or user that made comments (polymorphic relationship).
+    public function commentable() {
+        return $this->morphTo();
+    }
 }

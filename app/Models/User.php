@@ -45,4 +45,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //Funtion to return the posts a user has made (polymorphic relationship).
+    public function posts() {
+        return $this->morpMany('App/Post', 'postable');
+    }
+
+    //Funtion to return the comments a user has made (polymorphic relationship).
+    public function comments() {
+        return $this->morpMany('App/Comment', 'commentable');
+    }
 }

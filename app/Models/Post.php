@@ -23,4 +23,10 @@ class Post extends Model
     public function comments() {
         return $this->hasMany(Comment::class);
     }
+
+    //Function to return the artist or user that made posts (polymorphic relationship).
+    public function postable() {
+        return $this->morphTo();
+    }
+        
 }
