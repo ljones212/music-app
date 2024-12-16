@@ -20,23 +20,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//to add authentication to a rout use "->middleware(['auth'])"
-
-Route::get('/artists', [ArtistController::class, 'index']);
-Route::get('/artists/{id}', [ArtistController::class, 'show'])
-    ->name('artists.show');
-
-Route::get('/albums', [AlbumController::class, 'index'])
-    ->name('albums.index');
-Route::get('/albums/create', [AlbumController::class, 'create'])
-    ->name('albums.create');
-Route::post('/albums', [AlbumController::class, 'store'])
-    ->name('albums.store');
-Route::get('/albums/{id}', [AlbumController::class, 'show'])
-    ->name('albums.show');
-Route::delete('/albums/{id}', [AlbumController::class, 'destroy'])
-    ->name('albums.destroy');
-
 Route::get('/posts', [PostController::class, 'index'])
     ->name('posts.index')
     ->middleware(['auth']);
