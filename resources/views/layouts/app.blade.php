@@ -4,7 +4,7 @@
         <title>Music App - @yield('title')</title>
     </head>
     <body>
-        <h1>Music App - @yield('title')</h1>
+        <h1><font color = "scarlet">Music App</font> - @yield('title')</h1>
 
         <div>
             @yield('content')

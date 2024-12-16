@@ -35,4 +35,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/artists', [ArtistController::class, 'index']);
 
+Route::get('/artists/{id}', [ArtistController::class, 'show']);
+
 require __DIR__.'/auth.php';
