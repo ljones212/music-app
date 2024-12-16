@@ -27,8 +27,9 @@ Route::get('/artist', function() {
     return "Artist page.";
 })->middleware(['auth']);
 
-Route::get('/artists', function() {
-    return view('artists');
+//Artist view using input variables.
+Route::get('/artists/{artist?}', function($artist = null) {
+    return view('artists', ['artist'=>$artist]);
 });
 
 require __DIR__.'/auth.php';

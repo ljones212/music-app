@@ -1,9 +1,7 @@
-<html>
-<head>
-    <title>Artists</title>
-</head>
-<body>
-    <h1>Artists:</h1>
-    <p>These are the artists registered.</p>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('title', 'Artist')
+
+@section('content')
+    <p>Welcome to the artist page</p>
+@endsection
