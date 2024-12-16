@@ -54,8 +54,8 @@ class AlbumController extends Controller
         $a->certification_id = $validatedData['certification_id'];
         $a->save();
 
-        session()->flash('message', 'Album was created!');
-        return redirect()->route('albums.index');
+        return redirect()->route('albums.index')
+            ->with('message', 'Album was created!');
     }
 
     /**
@@ -89,6 +89,10 @@ class AlbumController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $album = Album::findOrFail($id);
+        $album->delete();
+
+        return redirect()->route('albums.index')
+            ->with('message', 'Album was deleted!');
     }
 }

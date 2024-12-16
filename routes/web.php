@@ -33,5 +33,7 @@ Route::post('/albums', [AlbumController::class, 'store'])
     ->name('albums.store');
 Route::get('/albums/{id}', [AlbumController::class, 'show'])
     ->name('albums.show');
+Route::delete('/albums/{id}', [AlbumController::class, 'destroy'])
+    ->name('albums.destroy');
 
 require __DIR__.'/auth.php';

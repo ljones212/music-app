@@ -12,4 +12,13 @@
         <li>Units Sold: {{$album->certification->units_sold}}</li>
     </ul>
 
+    <form method="POST"
+        action="{{route('albums.destroy', ['id' => $album->id])}}">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Delete Album</button>
+    </form>
+
+    <p><a href="{{route('albums.index')}}">Back</a></p>
+
 @endsection
