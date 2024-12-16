@@ -9,4 +9,9 @@
             <li><a href="{{route('albums.show', ['id' => $album->id])}}"> {{$album->title}}</a></li>
         @endforeach
     </ul>
+
+    <div class="pagination">
+        {{$albums->links()}}
+    </div>
+
 @endsection
