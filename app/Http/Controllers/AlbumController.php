@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Artist;
+use App\Models\Certification;
 use Illuminate\Http\Request;
 
 class AlbumController extends Controller
@@ -22,7 +24,13 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('albums.album_create');
+        $artists = Artist::orderBy('name', 'asc')->get();
+        $certifications = Certification::all();
+
+        return view('albums.album_create', [
+            'artists' => $artists,
+            'certifications' => $certifications,
+        ]);
     }
 
     /**
