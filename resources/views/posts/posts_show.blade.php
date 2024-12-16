@@ -4,10 +4,26 @@
 
 @section('content')
     <ul>
-
+        <li>User: {{$post->postable->name}}</li> 
         <li>{{$post->title}}</li>
         <li>{{$post->caption}}</li>
-        <li>User: {{$post->postable->name}}</li> 
+
+        <li><strong>Albums:
+            <ul>
+                @foreach ($post->albums as $album)
+                    <li>{{$album->title}}</li>
+                @endforeach
+            </ul>
+        </li>
+
+        <li>Songs:
+            <ul>
+                @foreach ($post->songs as $song)
+                    <li>{{$song->title}}</li>
+                @endforeach
+            </ul>
+        </li>
+
     </ul>
 
     <form method="POST"
