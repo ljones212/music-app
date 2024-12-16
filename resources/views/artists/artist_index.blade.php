@@ -9,4 +9,9 @@
             <li><a href="{{route('artists.show', ['id' => $artist->id])}}">{{$artist->name}}</a></li>
         @endforeach
     </ul>
+
+    <div class="pagination">
+        {{$artists->links('pagination::semantic-ui')}}
+    </div>
+
 @endsection

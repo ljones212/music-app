@@ -19,18 +19,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// //Artist view using input variables.
-// Route::get('/artists/{artist?}', function($artist = null) {
-//     return view('artists', ['artist'=>$artist]);
-// });
-
 //to add authentication to a rout use "->middleware(['auth'])"
 
 Route::get('/artists', [ArtistController::class, 'index']);
 Route::get('/artists/{id}', [ArtistController::class, 'show'])
     ->name('artists.show');
 
-Route::get('/albums', [AlbumController::class, 'index']);
+Route::get('/albums', [AlbumController::class, 'index'])
+    ->name('albums.index');
+Route::get('/albums/create', [AlbumController::class, 'create'])
+    ->name('albums.create');
+Route::post('/albums', [AlbumController::class, 'store'])
+    ->name('albums.store');
 Route::get('/albums/{id}', [AlbumController::class, 'show'])
     ->name('albums.show');
 
