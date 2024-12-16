@@ -8,7 +8,8 @@
         <li>Duration: {{$album->duration}}</li>
         <li>Release Date: {{$album->release_date}}</li>
         <li>Artist: {{$album->artist->name}}</li>
-        <li>Certification : {{$album->certification->cert_title}}</li>
+        <li>Certification: {{$album->certification->cert_title}}</li>
+        <li>Units Sold: {{$album->certification->units_sold}}</li>
     </ul>
 
 @endsection

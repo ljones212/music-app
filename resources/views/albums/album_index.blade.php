@@ -6,7 +6,7 @@
     <p>The albums available are:</p>
     <ul>
         @foreach ($albums as $album)
-            <li>{{$album->title}}</li>
+            <li><a href="{{route('albums.show', ['id' => $album->id])}}"> {{$album->title}}</a></li>
         @endforeach
     </ul>
 @endsection

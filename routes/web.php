@@ -27,9 +27,11 @@ Route::middleware('auth')->group(function () {
 //to add authentication to a rout use "->middleware(['auth'])"
 
 Route::get('/artists', [ArtistController::class, 'index']);
-Route::get('/artists/{id}', [ArtistController::class, 'show']);
+Route::get('/artists/{id}', [ArtistController::class, 'show'])
+    ->name('artists.show');
 
 Route::get('/albums', [AlbumController::class, 'index']);
-Route::get('/albums/{id}', [AlbumController::class, 'show']);
+Route::get('/albums/{id}', [AlbumController::class, 'show'])
+    ->name('albums.show');
 
 require __DIR__.'/auth.php';

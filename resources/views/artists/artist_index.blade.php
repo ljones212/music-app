@@ -6,7 +6,7 @@
     <p>The artists registered are:</p>
     <ul>
         @foreach ($artists as $artist)
-            <li>{{$artist->name}}</li>
+            <li><a href="{{route('artists.show', ['id' => $artist->id])}}">{{$artist->name}}</a></li>
         @endforeach
     </ul>
 @endsection
