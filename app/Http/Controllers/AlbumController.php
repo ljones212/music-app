@@ -65,7 +65,10 @@ class AlbumController extends Controller
     {
         //Returns the album tot eh album_show page. If not available sends error.
         $album = Album::findOrFail($id);
-        return view('albums.album_show', ['album' => $album]);
+        return view('albums.album_show', [
+            'album' => $album,
+            'user' => $user,
+        ]);
     }
 
     /**

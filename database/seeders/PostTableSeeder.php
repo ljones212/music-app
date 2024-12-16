@@ -19,7 +19,6 @@ class PostTableSeeder extends Seeder
         $artist = Artist::factory()->create();
 
         $p1 = new Post;
-        $p1->name = "SamK";
         $p1->title = "Best Song";
         $p1->caption = "My favourite song";
         $p1->postable()->associate($user);
@@ -28,7 +27,6 @@ class PostTableSeeder extends Seeder
         $p1->songs()->attach(2);
 
         $p2 = new Post;
-        $p2->name = "Jimmy";
         $p2->title = "This album!";
         $p2->caption = "Check it out!!";
         $p2->postable_type = Artist::class;

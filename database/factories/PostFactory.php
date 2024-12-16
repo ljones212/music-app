@@ -17,7 +17,6 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
             'title' => fake()->sentence($nbWords = 10, $variableNbWords = true),
             'caption' => fake()->sentence($nbWords = 20, $variableNbWords = true),
         ];
