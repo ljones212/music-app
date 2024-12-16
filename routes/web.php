@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,23 +19,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// //Route with no authentication
-// Route::get('/songs', function() {
-//     return "Welcome to the songs page.";
-// });
-
-// //Route with authentication
-// Route::get('/artist', function() {
-//     return "Artist page.";
-// })->middleware(['auth']);
-
 // //Artist view using input variables.
 // Route::get('/artists/{artist?}', function($artist = null) {
 //     return view('artists', ['artist'=>$artist]);
 // });
 
-Route::get('/artists', [ArtistController::class, 'index']);
+//to add authentication to a rout use "->middleware(['auth'])"
 
+Route::get('/artists', [ArtistController::class, 'index']);
 Route::get('/artists/{id}', [ArtistController::class, 'show']);
+
+Route::get('/albums', [AlbumController::class, 'index']);
+Route::get('/albums/{id}', [AlbumController::class, 'show']);
 
 require __DIR__.'/auth.php';

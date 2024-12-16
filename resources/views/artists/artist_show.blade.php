@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Artist Details')
+@section('title', $artist->name . "'s Artist Details")
 
 @section('content')
     <ul>

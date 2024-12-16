@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Artist;
+use App\Models\Album;
 use Illuminate\Http\Request;
 
-class ArtistController extends Controller
+class AlbumController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $artists = Artist::all();
-        return view('artists.artist_index', ['artists' => $artists]);
+        $albums = Album::all();
+        return view('albums.album_index', ['albums' => $albums]);
     }
 
     /**
@@ -37,8 +37,8 @@ class ArtistController extends Controller
      */
     public function show(string $id)
     {
-        $artist = Artist::findOrFail($id);
-        return view('artists.artist_show', ['artist' => $artist]);
+        $album = Album::findOrFail($id);
+        return view('albums.album_show', ['album' => $album]);
     }
 
     /**

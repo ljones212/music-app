@@ -22,7 +22,7 @@ class Album extends Model
 
     //Function to return the certification of an album (one-to-one relationship).
     public function certification() {
-        return $this->hasOne(Certification::class);
+        return $this->belongsTo(Certification::class);
     }
 
     //Function to return posts that feature an album (many-to-many reltionship).

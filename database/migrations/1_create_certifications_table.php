@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('certifications', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('cert_title');
             $table->integer('units_sold');
             $table->timestamps();
         });

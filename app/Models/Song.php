@@ -17,7 +17,7 @@ class Song extends Model
 
     //Function to return the certification of a song (one-to-one relationship).
     public function certification() {
-        return $this->hasOne(Certification::class);
+        return $this->belongsTo(Certification::class);
     }
 
     //Function to return posts that feature a song (many-to-many reltionship).
