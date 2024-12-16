@@ -18,17 +18,17 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'Joe',
-            'email' => 'joej02@gmail.com',
-            'password' => bcrypt('IHaveABadPassword'),
-        ]);
+        $u1 = new User;
+        $u1->name = "Joe";
+        $u1->email = "joej02@gmail.com";
+        $u1->password = bcrypt("IHaveABadPassword");
+        $u1->save();
 
-        User::factory()->create([
-            'name' => 'Chloe',
-            'email' => 'cj09@yahoo.co.uk',
-            'password' => bcrypt('BetUCantGuessMyPword'),
-        ]);
+        $u2 = new User;
+        $u2->name = "Chloe";
+        $u2->email = "cj09@yahoo.co.uk";
+        $u2->password = bcrypt("BetUCantGuessMyPword");
+        $u2->save();
 
         $artist = Artist::factory()->create();
 
@@ -38,8 +38,20 @@ class UserTableSeeder extends Seeder
             //Creates a number of (5) posts per user
             ->has(Post::factory()
                 ->count(5)
+                ->state(function (array $attributes, User $user) {
+                    return [
+                        'postable_type' => User::class,
+                        'postable_id' => $user->id,
+                    ];
+                })
                 //Creates a number of (3) comments per post.
                 ->has(Comment::factory()
+                    ->state(function (array $attributes, Post $post) {
+                        return [
+                            'commentable_type' => Post::class,
+                            'commentable_id' => $post->id,
+                        ];
+                    })
                     //Creates a number of (2) albums per comment.
                     ->has(Album::factory()
                         ->for($artist)
