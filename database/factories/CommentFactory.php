@@ -17,7 +17,6 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
             'comment' => fake()->sentence($nbWords = 20, $variableNbWords = true),
         ];
     }

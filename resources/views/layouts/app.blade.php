@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Music App - @yield('title')</title>
+        <title>MusiVerse</title>
         <style>
             body {
                 font-family: 'Arial', sans-serif;
@@ -59,7 +59,7 @@
     <body>
 
         <div class="top-bar">
-            <h1><font color="white">MusiVerse</font> - @yield('title')</h1>
+            <h1><font color="white">MusiVerse</font></h1>
 
             <form action="{{route('logout')}}" method="POST">
                 @csrf

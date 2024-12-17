@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('comment');
             $table->bigInteger('post_id')->unsigned();
             $table->morphs('commentable');

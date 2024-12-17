@@ -36,7 +36,6 @@ class UserTableSeeder extends Seeder
         //Calls post factory.
         User::factory()
             ->count(20)
-            //Creates a number of (5) posts per user
             ->has(Post::factory()
                 ->count(5)
                 ->state(function (array $attributes, User $user) {
@@ -45,28 +44,27 @@ class UserTableSeeder extends Seeder
                         'postable_id' => $user->id,
                     ];
                 })
-                //Creates a number of (3) comments per post.
-                ->has(Comment::factory()
-                    ->state(function (array $attributes, Post $post) {
-                        return [
-                            'commentable_type' => Post::class,
-                            'commentable_id' => $post->id,
-                        ];
-                    })
-                    //Creates a number of (2) albums per comment.
-                    ->has(Album::factory()
-                        ->for($artist)
-                        ->count(2), 'albums')
-                    ->has(Song::factory()
-                        ->count(2), 'songs')
-                ->count(3), 'comments')
-                //Creates a number of (2) albums per post.
-                ->has(Album::factory()
-                    ->for($artist)
-                    ->count(2), 'albums')
-                //Creates a number of (2) songs per post.
-                ->has(Song::factory()
-                    ->count(2), 'songs'))
-        ->create();
+            // Creates a number of (3) comments per post
+            ->has(Comment::factory()
+            ->state(function (array $attributes) {
+                return [
+                    'commentable_type' => User::class,
+                    'commentable_id' => User::inRandomOrder()->first()->id,
+                ];
+            })
+            ->has(Album::factory()
+                ->for($artist)
+                ->count(2), 'albums')
+            ->has(Song::factory()
+                ->count(2), 'songs')
+            ->count(3), 'comments')
+        // Creates albums and songs per post
+        ->has(Album::factory()
+            ->for($artist)
+            ->count(2), 'albums')
+        ->has(Song::factory()
+            ->count(2), 'songs'))
+    ->create();
+
     }
 }

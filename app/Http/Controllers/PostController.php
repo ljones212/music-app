@@ -73,7 +73,8 @@ class PostController extends Controller
      * Display the specified resource.
      */
     public function show(Post $post) {
-        return view('posts.posts_show', ['post' => $post]);
+        $comments = $post->comments()->with('commentable')->get();
+        return view('posts.posts_show', ['post' => $post, 'comments' => $comments]);
     }
 
     /**

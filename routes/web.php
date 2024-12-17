@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\ArtistController;
-use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +29,10 @@ Route::get('/posts/{post}', [PostController::class, 'show'])
     ->middleware(['auth']);
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])
     ->name('posts.destroy')
+    ->middleware(['auth']);
+
+Route::post('/posts/{post_id}/comments', [CommentController::class, 'store'])
+    ->name('comments.store')
     ->middleware(['auth']);
 
 require __DIR__.'/auth.php';
