@@ -41,6 +41,12 @@
         @endforeach
     </ul>
 
-    <p><a href="{{route('posts.index')}}">Back</a></p>
+    <div style="margin-top: 20px;">
+        <a href="{{ route('comments.create', ['post' => $post->id]) }}" 
+        style="background-color: #ff5722; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px;">
+            Add Comment
+        </a>
+    </div>
 
+    <p><a href="{{route('posts.index')}}">Back</a></p>
 @endsection

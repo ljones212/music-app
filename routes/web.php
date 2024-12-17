@@ -31,7 +31,10 @@ Route::delete('/posts/{id}', [PostController::class, 'destroy'])
     ->name('posts.destroy')
     ->middleware(['auth']);
 
-Route::post('/posts/{post_id}/comments', [CommentController::class, 'store'])
+Route::get('/posts/{post}/comments/create', [CommentController::class, 'create'])
+    ->name('comments.create')
+    ->middleware(['auth']);
+Route::post('/comments', [CommentController::class, 'store'])
     ->name('comments.store')
     ->middleware(['auth']);
 
