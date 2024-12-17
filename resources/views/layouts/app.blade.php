@@ -71,19 +71,18 @@
                 padding: 20px;
                 z-index: 1;
             }
-
-            /* Styling for error and session message boxes */
+            
             .messages {
-                background-color: #f8d7da; /* Red background for errors */
-                color: #721c24; /* Red text for errors */
+                background-color: #f8d7da;
+                color: #721c24;
                 padding: 10px;
                 margin: 10px 0;
                 border-radius: 5px;
             }
 
             .messages.success {
-                background-color: #d4edda; /* Green background for success */
-                color: #155724; /* Green text for success */
+                background-color: #d4edda;
+                color: #155724;
             }
 
             .messages ul {
@@ -100,32 +99,30 @@
 
         <div class="top-bar">
             <!-- Home Button -->
-            <a href="{{ route('posts.index') }}" class="home-button">Home</a>
+            <a href="{{route('posts.index')}}" class="home-button">Home</a>
 
             <h1><font color="white">MusiVerse</font></h1>
 
-            <form action="{{ route('logout') }}" method="POST">
+            <form action="{{route('logout')}}" method="POST">
                 @csrf
                 <button type="submit" class="logout-button">Log Out</button>
             </form>
         </div>
 
-        <!-- Display error messages -->
         @if ($errors->any())
             <div class="messages">
-                <strong>Errors:</strong>
+                <b>Errors:</b>
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li>{{$error}}</li>
                     @endforeach
                 </ul>
             </div>
         @endif
 
-        <!-- Display session messages -->
         @if (session('message'))
             <div class="messages success">
-                <strong>{{ session('message') }}</strong>
+                <b>{{session('message')}}</b>
             </div>
         @endif
 

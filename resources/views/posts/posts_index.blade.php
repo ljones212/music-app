@@ -5,20 +5,19 @@
 @section('content')
     <div style="display: flex; justify-content: space-between; align-items: center;">
         <h3><b>All Posts:</b></h3>
-        <a href="{{ route('posts.create') }}" style="background-color: #ff5722; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; text-decoration: none;">
+        <a href="{{route('posts.create') }}" style="background-color: #ff5722; color: white;
+            padding: 10px 20px; border-radius: 5px; font-weight: bold; text-decoration: none;">
             Create new post
         </a>
     </div>
 
     @foreach ($posts as $post)
         <div style="border-bottom: 1px solid #ccc; padding: 20px 0;">
-            <!-- Display the user's name above the post title -->
-            <p><b><a href="{{ route('users.show', ['user' => $post->postable_id]) }}" style="color: #333;">{{ $post->postable->name }}</a></b></p>
+            <p><b><a href="{{ route('users.show', ['user' => $post->postable_id]) }}" style="color: #333;">
+                {{$post->postable->name}}</a></b></p>
             
-            <!-- Display the post title -->
-            <h4><a href="{{ route('posts.show', ['post' => $post->id]) }}" style="color: #ff5722;">{{$post->title}}</a></h4>
+            <h4><a href="{{route('posts.show', ['post' => $post->id])}}" style="color: #ff5722;">{{$post->title}}</a></h4>
 
-            <!-- Display albums attached to the post -->
             @if ($post->albums->isNotEmpty())
                 <p><strong>Albums:</strong></p>
                 <ul>
