@@ -1,5 +1,3 @@
-<!-- resources/views/users/users_show.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
@@ -15,6 +13,25 @@
                         <b>{{ $post->title }}</b>
                     </a>
                     <p>{{ $post->content }}</p>
+
+                    <h4>Albums:</h4>
+                    <ul>
+                        @forelse($post->albums as $album)
+                            <li>{{ $album->title }}</li>
+                        @empty
+                            <li>No albums attached to this post.</li>
+                        @endforelse
+                    </ul>
+
+                    <h4>Songs:</h4>
+                    <ul>
+                        @forelse($post->songs as $song)
+                            <li>{{ $song->title }}</li>
+                        @empty
+                            <li>No songs attached to this post.</li>
+                        @endforelse
+                    </ul>
+
                     <p><small>Posted on: {{ $post->created_at->format('Y-m-d H:i') }}</small></p>
                 </li>
             @empty
@@ -29,6 +46,25 @@
                     <a href="{{ route('posts.show', $comment->post_id) }}">
                         {{ $comment->comment }}
                     </a>
+
+                    <h4>Albums:</h4>
+                    <ul>
+                        @forelse($post->albums as $album)
+                            <li>{{ $album->title }}</li>
+                        @empty
+                            <li>No albums attached to this post.</li>
+                        @endforelse
+                    </ul>
+
+                    <h4>Songs:</h4>
+                    <ul>
+                        @forelse($post->songs as $song)
+                            <li>{{ $song->title }}</li>
+                        @empty
+                            <li>No songs attached to this post.</li>
+                        @endforelse
+                    </ul>
+
                     <p><small>Commented on: {{ $comment->created_at->format('Y-m-d H:i') }}</small></p>
                 </li>
             @empty

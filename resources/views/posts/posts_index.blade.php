@@ -10,11 +10,35 @@
         </a>
     </div>
 
-    <ul>
-        @foreach ($posts as $post)
-            <li><a href="{{ route('posts.show', ['post' => $post->id]) }}"> {{$post->title}}</a></li>
-        @endforeach
-    </ul>
+    @foreach ($posts as $post)
+        <div style="border-bottom: 1px solid #ccc; padding: 20px 0;">
+            <!-- Display the user's name above the post title -->
+            <p><b><a href="{{ route('users.show', ['user' => $post->postable_id]) }}" style="color: #333;">{{ $post->postable->name }}</a></b></p>
+            
+            <!-- Display the post title -->
+            <h4><a href="{{ route('posts.show', ['post' => $post->id]) }}" style="color: #ff5722;">{{$post->title}}</a></h4>
+
+            <!-- Display albums attached to the post -->
+            @if ($post->albums->isNotEmpty())
+                <p><strong>Albums:</strong></p>
+                <ul>
+                    @foreach ($post->albums as $album)
+                        <li>{{$album->title}}</li>
+                    @endforeach
+                </ul>
+            @endif
+
+            <!-- Display songs attached to the post -->
+            @if ($post->songs->isNotEmpty())
+                <p><strong>Songs:</strong></p>
+                <ul>
+                    @foreach ($post->songs as $song)
+                        <li>{{$song->title}}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+    @endforeach
 
     <div class="pagination" style="text-align: center;">
         {{$posts->links('pagination::semantic-ui')}}

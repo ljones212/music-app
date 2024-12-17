@@ -49,6 +49,23 @@
                 padding-left: 10px;
             }
 
+            .home-button {
+                background-color: white;
+                color: #ff5722;
+                padding: 10px 20px;
+                border: 2px solid #ff5722;
+                cursor: pointer;
+                font-size: 16px;
+                border-radius: 5px;
+                font-family: 'Arial', sans-serif;
+                text-decoration: none;
+            }
+
+            .home-button:hover {
+                background-color: #e64a19;
+                color: white;
+            }
+
             .header-container {
                 position: relative;
                 padding: 20px;
@@ -82,9 +99,12 @@
     <body>
 
         <div class="top-bar">
+            <!-- Home Button -->
+            <a href="{{ route('posts.index') }}" class="home-button">Home</a>
+
             <h1><font color="white">MusiVerse</font></h1>
 
-            <form action="{{route('logout')}}" method="POST">
+            <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="logout-button">Log Out</button>
             </form>

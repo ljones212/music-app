@@ -37,9 +37,11 @@ class UserController extends Controller
     public function show(string $id)
     {
         $user = User::findOrFail($id);
-
-        $posts = $user->posts()->latest()->get();
     
+        // Eager load posts with their related songs and albums
+        $posts = $user->posts()->with('songs', 'albums')->latest()->get();
+    
+        // Get the user's comments
         $comments = $user->comments()->latest()->get();
     
         return view('users.users_show', [
@@ -48,7 +50,7 @@ class UserController extends Controller
             'comments' => $comments,
         ]);
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
