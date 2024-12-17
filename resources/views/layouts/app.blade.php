@@ -7,6 +7,7 @@
                 font-family: 'Arial', sans-serif;
                 margin: 0;
                 padding: 0;
+                padding-top: 100px; /* Ensure there's space below the fixed top bar */
             }
 
             .logout-button {
@@ -52,7 +53,29 @@
                 position: relative;
                 padding: 20px;
                 z-index: 1;
-                margin-top: 100px;
+            }
+
+            /* Styling for error and session message boxes */
+            .messages {
+                background-color: #f8d7da; /* Red background for errors */
+                color: #721c24; /* Red text for errors */
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 5px;
+            }
+
+            .messages.success {
+                background-color: #d4edda; /* Green background for success */
+                color: #155724; /* Green text for success */
+            }
+
+            .messages ul {
+                margin: 0;
+                padding-left: 20px;
+            }
+
+            .messages ul li {
+                list-style-type: disc;
             }
         </style>
     </head>
@@ -67,19 +90,23 @@
             </form>
         </div>
 
+        <!-- Display error messages -->
         @if ($errors->any())
-        <div>
-            Errors:
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
+            <div class="messages">
+                <strong>Errors:</strong>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
 
+        <!-- Display session messages -->
         @if (session('message'))
-            <p><b>{{session('message')}}</b></p>
+            <div class="messages success">
+                <strong>{{ session('message') }}</strong>
+            </div>
         @endif
 
         <div class="header-container">

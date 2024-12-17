@@ -97,6 +97,17 @@ class CommentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $comment = Comment::findOrFail($id);
+        
+        if ($comment->commentable_id === auth()->id()) {
+            $comment->delete();
+
+            return redirect()->route('posts.show', ['post' => $comment->post_id])
+                ->with('message', 'Comment deleted!');
+        }
+
+        return redirect()->route('posts.show', ['post' => $comment->post_id])
+            ->with('error', 'You are not authorized to delete this comment.');
     }
 }

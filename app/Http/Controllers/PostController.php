@@ -43,7 +43,7 @@ class PostController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:50',
-            'caption' => 'required|max:255',
+            'caption' => 'nullable|max:255',
             'album_ids' => 'array',
             'song_ids' => 'array',
         ]);
@@ -73,7 +73,7 @@ class PostController extends Controller
      * Display the specified resource.
      */
     public function show(Post $post) {
-        $comments = $post->comments()->with('commentable')->get();
+        $comments = $post->comments()->with('commentable')->paginate(5);
         return view('posts.posts_show', ['post' => $post, 'comments' => $comments]);
     }
 
@@ -102,6 +102,6 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('posts.index')
-            ->with('message', 'Post was deleted');
+            ->with('message', 'Post was deleted!');
     }
 }
