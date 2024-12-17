@@ -29,7 +29,7 @@ Route::get('/posts/create', [PostController::class, 'create'])
 Route::post('/posts', [PostController::class, 'store'])
     ->name('posts.store')
     ->middleware(['auth']);
-Route::get('/posts/{id}', [PostController::class, 'show'])
+Route::get('/posts/{post}', [PostController::class, 'show'])
     ->name('posts.show')
     ->middleware(['auth']);
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])

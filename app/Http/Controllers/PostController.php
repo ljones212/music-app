@@ -72,10 +72,8 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        $post = Post::with(['albums', 'songs'])->findOrFail($id);
-    return view('posts.posts_show', ['post' => $post]);
+    public function show(Post $post) {
+        return view('posts.posts_show', ['post' => $post]);
     }
 
     /**
