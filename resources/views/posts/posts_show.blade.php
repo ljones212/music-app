@@ -3,7 +3,10 @@
 @section('content')
     <div style="margin-top: 0; padding-top: 0;">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="margin: 0; padding: 0;"><b>{{$post->postable->name}}</b></h3>
+            <!-- Link the poster's username to their user page -->
+            <h3 style="margin: 0; padding: 0;">
+                <b><a href="{{ route('user.show', ['user' => $post->postable_id]) }}">{{ $post->postable->name }}</a></b>
+            </h3>
 
             <!-- Check if the authenticated user is the poster -->
             @if (Auth::id() === $post->postable_id)
@@ -42,7 +45,8 @@
         @foreach($comments as $comment)
             <li style="display: flex; justify-content: space-between; align-items: center;">
                 <div style="flex-grow: 1;">
-                    <p><b>{{$comment->commentable->name}}</b></p>
+                    <!-- Link the username to the user's profile page -->
+                    <p><a href="{{ route('user.show', ['user' => $comment->commentable_id]) }}"><b>{{$comment->commentable->name}}</b></a></p>
                     <p>{{ $comment->comment }}</p>
                 </div>
 

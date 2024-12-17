@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,10 @@ Route::post('/comments', [CommentController::class, 'store'])
     ->middleware(['auth']);
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])
     ->name('comments.destroy')
+    ->middleware(['auth']);
+
+Route::get('/user/{user}', [UserController::class, 'show'])
+    ->name('users.show')
     ->middleware(['auth']);
 
 require __DIR__.'/auth.php';

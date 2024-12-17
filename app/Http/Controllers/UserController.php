@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -35,7 +36,17 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $posts = $user->posts()->latest()->get();
+    
+        $comments = $user->comments()->latest()->get();
+    
+        return view('users.users_show', [
+            'user' => $user,
+            'posts' => $posts,
+            'comments' => $comments,
+        ]);
     }
 
     /**

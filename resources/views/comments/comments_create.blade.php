@@ -22,5 +22,5 @@
     </p>
 
     <input type="submit" value="Submit">
-    <a href="{{ route('posts.index') }}">Cancel</a>
+    <a href="{{ route('posts.show', $post->id) }}">Cancel</a>
 </form>
