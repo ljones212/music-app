@@ -16,7 +16,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div>
                 <a href="/" style="font-family: sans-serif; font-size: 3rem; font-weight: 600; color: #ff5722;">
-                    Music App
+                    MusiVerse
                 </a>
 
             </div>

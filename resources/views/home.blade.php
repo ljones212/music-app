@@ -45,7 +45,7 @@
     </style>
 </head>
 <body>
-    <h1>Music App</h1>
+    <h1>MusiVerse</h1>
     <a href="/login">Log In</a>
     <a href="/register">Sign Up</a>
 </body>
